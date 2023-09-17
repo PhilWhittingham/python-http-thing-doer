@@ -4,11 +4,14 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+fastapi = "*"
+httpx = "*"
 
 [dev-packages]
 ruff = "*"
 black = "*"
 mypy = "*"
+behave = "*"
 
 [requires]
 python_version = "3.8"
@@ -24,3 +27,4 @@ test-static = """sh -c "
     && ruff check .
 "
 """
+test-behave = "behave test/behave/features"
