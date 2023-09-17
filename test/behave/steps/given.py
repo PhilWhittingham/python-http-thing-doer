@@ -8,3 +8,11 @@ def add_data_to_request(context):
     }
 
     context.request = request
+
+@given("a request in the incorrect format")
+def add_bad_data_to_request(context):
+    request = {
+        "not_the_right_format": 100
+    }
+
+    context.request = request

@@ -1,8 +1,8 @@
 from behave import then
 
 
-@then("the status code returned is a 200")
-def assert_status_code_is_200(context):
+@then("the status code returned is {code:d}")
+def assert_status_code_is_200(context, code: int):
     response = context.response
 
-    assert response.status_code == 200
+    assert response.status_code == code
