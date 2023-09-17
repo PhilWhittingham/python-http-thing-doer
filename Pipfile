@@ -12,6 +12,7 @@ ruff = "*"
 black = "*"
 mypy = "*"
 behave = "*"
+pytest = "*"
 
 [requires]
 python_version = "3.8"
@@ -27,4 +28,6 @@ test-static = """sh -c "
     && ruff check .
 "
 """
+test-unit = "pytest test/unit"
 test-behave = "behave test/behave/features"
+
