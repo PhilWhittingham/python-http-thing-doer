@@ -1,10 +1,10 @@
+from pydantic import BaseModel, Field
 
-
-from pydantic import BaseModel
 
 class CharCount(BaseModel):
-    char: str
+    char: str = Field(max_length=1)
     count: int
+
 
 class CharCounter(BaseModel):
     input: str
@@ -14,9 +14,8 @@ class CharCounter(BaseModel):
         unique_characters = set(self.input)
         for character in unique_characters:
             character_count = CharCount(
-                char=character,
-                count=self.input.count(character)
+                char=character, count=self.input.count(character)
             )
             character_counts.append(character_count)
-        
+
         return character_counts
