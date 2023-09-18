@@ -11,6 +11,7 @@ This project utilises tools and architectures that I have become comfortable wit
 ### Built With
 
 * [Python 3.10](https://www.python.org/)
+* [Pipenv](https://pipenv.pypa.io/en/latest/)
 * [FastAPI](https://fastapi.tiangolo.com/)
 * [Pydantic](https://docs.pydantic.dev/latest/)
 * [Dependency Injector](https://python-dependency-injector.ets-labs.org/)
