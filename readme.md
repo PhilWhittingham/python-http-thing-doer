@@ -12,6 +12,7 @@ This project utilises tools and architectures that I have become comfortable wit
 
 * [Python 3.10](https://www.python.org/)
 * [FastAPI](https://fastapi.tiangolo.com/)
+* [Pydantic](https://docs.pydantic.dev/latest/)
 * [Dependency Injector](https://python-dependency-injector.ets-labs.org/)
 * [Pytest](https://docs.pytest.org/en/7.4.x/)
 * [Behave](https://github.com/behave/behave)
