@@ -20,12 +20,14 @@ python_version = "3.8"
 [scripts]
 lint = """sh -c "
     black . \
-    && ruff check . --fix
+    && ruff check . --fix \
+    && mypy . --ignore-missing-imports
 "
 """
 test-static = """sh -c "
     black . --check \
-    && ruff check .
+    && ruff check . \
+    && mypy . --ignore-missing-imports
 "
 """
 test-unit = "pytest test/unit"
