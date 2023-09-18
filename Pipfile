@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 fastapi = "*"
 httpx = "*"
+dependency-injector = "*"
 
 [dev-packages]
 ruff = "*"
@@ -32,4 +33,3 @@ test-static = """sh -c "
 """
 test-unit = "pytest test/unit"
 test-behave = "behave test/behave/features"
-
