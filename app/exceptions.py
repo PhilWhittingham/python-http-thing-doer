@@ -1,0 +1,3 @@
+class CountNotFoundException(Exception):
+    # Raised when a count cannot be found in the repository
+    ...

@@ -3,6 +3,7 @@ from typing import Any
 from pydantic import BaseModel
 
 from app.domain import CharCount
+from app.exceptions import CountNotFoundException
 
 
 class CharacterCountRepository(BaseModel):
@@ -19,6 +20,8 @@ class CharacterCountRepository(BaseModel):
                 continue
 
             return database_count["count"]["count"]
+
+        raise CountNotFoundException()
 
     def save_count(self, character_count: CharCount, request_input: str):
         database_character_count = {

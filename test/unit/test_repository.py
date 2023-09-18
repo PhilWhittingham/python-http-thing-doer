@@ -1,5 +1,8 @@
 from unittest.mock import MagicMock
+
+import pytest
 from app.domain import CharCount
+from app.exceptions import CountNotFoundException
 from app.repository import CharacterCountRepository
 
 
@@ -25,3 +28,12 @@ def test_character_count_repository_get_with_count_present_returns_count_value()
     count = repository.get_count("t", "this")
 
     assert count == 1
+
+
+def test_character_count_repository_get_with_count_missing_raises_exception():
+    mocked_client = MagicMock()
+    mocked_client.find.return_value = []
+    repository = CharacterCountRepository(client=mocked_client)
+
+    with pytest.raises(CountNotFoundException):
+        _ = repository.get_count("t", "this")
