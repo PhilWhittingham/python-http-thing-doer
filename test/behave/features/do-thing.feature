@@ -16,3 +16,11 @@ Feature: Do things using the thing doer
         Then the status code returned is 200
         And the response has successfully counted our first letter 2 times
         And the database has 1 document in it
+
+    Scenario: The user does a thing which has already been done
+        Given a request where the input is: this string
+        And a database entry which has character t with a count of 100 for that request
+        When we do a thing
+        Then the status code returned is 200
+        And the response has successfully counted our first letter 100 times
+        And the database has 1 document in it

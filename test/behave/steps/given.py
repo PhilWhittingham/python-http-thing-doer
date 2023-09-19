@@ -20,3 +20,16 @@ def add_bad_data_to_request(context):
     request = {"not_the_right_format": 100}
 
     context.request = request
+
+
+@given(
+    "a database entry which has character {character} with  a "
+    "count of {count:d} for that request"
+)
+def create_database_entry(context, character: str, count: int):
+    entry = {
+        "count": {"char": character, "count": count},
+        "request_input": context.request["command"],
+    }
+
+    context.mock_database_client.insert_one(entry)

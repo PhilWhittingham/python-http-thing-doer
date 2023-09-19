@@ -4,6 +4,7 @@ from app.containers import Container
 from app.domain import CharCounter
 
 from app.dto import ResponseDto, CommandDto
+from app.exceptions import CountNotFoundException
 from app.repository import CharacterCountRepository
 
 
@@ -17,12 +18,16 @@ def do_a_thing_url_command(
     repository: CharacterCountRepository = Depends(Provide[Container.count_repository]),
 ):
     command_string = command.command
+    first_character = command_string[0]
+
+    try:
+        count = repository.get_count(first_character, command_string)
+        return ResponseDto(input=command, count=count)
+    except CountNotFoundException:
+        pass
 
     character_counter = CharCounter(input=command_string)
-
     char_counts = character_counter.count_characters()
-
-    first_character = command_string[0]
 
     first_character_counts = [
         char_count for char_count in char_counts if char_count.char == first_character
