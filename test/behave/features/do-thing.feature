@@ -15,3 +15,4 @@ Feature: Do things using the thing doer
         When we do a thing
         Then the status code returned is 200
         And the response has successfully counted our first letter 2 times
+        And the database has 1 document in it

@@ -13,3 +13,10 @@ def assert_character_count(context, count: int):
     response_body = context.response.json()
 
     assert response_body["count"] == count
+
+
+@then("the database has {count:d} document in it")
+def assert_database_document_count(context, count: int):
+    datastore = context.mock_database_client.datastore
+
+    assert len(datastore) == count, len(datastore)

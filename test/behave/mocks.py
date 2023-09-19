@@ -1,14 +1,14 @@
 import json
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 class MockDatabaseClient(BaseModel):
-    datastore: list[str] = []
+    datastore: list[str] = Field(default_factory=list)
 
     def insert_one(self, inserted_one: dict):
         # We cheat here to do the serialisation which may
         # be handled by the database engine
-        serialised_inserted_one = json.dumps(inserted_one)
+        serialised_inserted_one = json.dumps(inserted_one, default=str)
 
         self.datastore.append(serialised_inserted_one)
 

@@ -27,5 +27,9 @@ def app_client(context):
     app.container.unwire()
 
 
+def before_scenario(context, scenario):
+    context.mock_database_client.datastore = []
+
+
 def before_feature(context, feature):
     use_fixture(app_client, context)
