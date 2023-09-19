@@ -23,7 +23,7 @@ def add_bad_data_to_request(context):
 
 
 @given(
-    "a database entry which has character {character} with  a "
+    "a database entry which has character {character} with a "
     "count of {count:d} for that request"
 )
 def create_database_entry(context, character: str, count: int):
