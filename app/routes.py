@@ -1,13 +1,13 @@
-from fastapi import FastAPI
+from fastapi import APIRouter
 from app.domain import CharCounter
 
 from app.dto import ResponseDto, CommandDto
 
 
-app = FastAPI()
+router = APIRouter()
 
 
-@app.post("/do-thing", response_model=ResponseDto)
+@router.post("/do-thing", response_model=ResponseDto)
 def do_a_thing_url_command(command: CommandDto):
     command_string = command.command
 

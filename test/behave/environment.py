@@ -1,15 +1,15 @@
 from behave import fixture, use_fixture
 from fastapi.testclient import TestClient
-
-from app.routes import app
+from app.main import create_app
 
 
 @fixture
 def app_client(context):
-    client = TestClient(app, raise_server_exceptions=False)
+    app = create_app()
 
-    context.client = client
+    context.client = TestClient(app, raise_server_exceptions=False)
     yield context.client
+    app.container.unwire()
 
 
 def before_feature(context, feature):
