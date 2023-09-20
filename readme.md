@@ -37,12 +37,11 @@ In the `create_app` function we _could_ define a bunch of app-level settings, bu
 
 Finally, we make the `app` globally available which allows us to run the program using some ASGI service ([uvicorn](https://www.uvicorn.org/), etc).
 
-The following three sections focus on the conventional [layers](https://en.wikipedia.org/wiki/Multitier_architecture) which I've used here to support appropriate separation of concerns and testibility. 
-
-
 [app/containers.py](https://github.com/PhilWhittingham/python-http-thing-doer/blob/main/app/containers.py)
 
 This file is purely there to define our dependencies using Dependency Injector. They include default instantiations which are the ones which will be used in the live service. Everything defined in this file can be overriden in tests, as will be seen later.
+
+The following three sections focus on the conventional [layers](https://en.wikipedia.org/wiki/Multitier_architecture) which I've used here to support appropriate separation of concerns and testibility. 
 
 ## API
 
