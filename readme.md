@@ -8,6 +8,27 @@ An elaborate, over-engineered backend solution for doing a single generic "thing
 
 This project utilises tools and architectures that I have become comfortable with during my time as an engineer. It can be used as a minimal-example for the packages and concepts used. It can be used as a template to build projects that _actually_ do things.
 
+
+## Pre-requisites
+
+`Python 3.10` and `Pipenv` are required to build, run and test.
+
+## Running Instructions
+
+Build the environment using
+
+```pipenv install```<br />
+or<br />
+```pipenv install --dev```<br />
+if running the tests.
+
+Run the tests by running one of<br />
+```pipenv run test-static```<br />
+```pipenv run test-unit```<br />
+```pipenv run test-behave```<br />
+for running the static (`ruff`, `black`, `mypy` for styles and types), unit and behave tests respectively.
+
+
 ## Built With
 
 * [Python 3.10](https://www.python.org/)
@@ -41,7 +62,7 @@ Finally, we make the `app` globally available which allows us to run the program
 
 This file is purely there to define our dependencies using Dependency Injector. They include default instantiations which are the ones which will be used in the live service. Everything defined in this file can be overriden in tests, as will be seen later.
 
-The following three sections focus on the conventional [layers](https://en.wikipedia.org/wiki/Multitier_architecture) which I've used here to support appropriate separation of concerns and testibility. 
+The following sections focus on the conventional [layers](https://en.wikipedia.org/wiki/Multitier_architecture) which I've used here to support appropriate separation of concerns and testibility. 
 
 ## API
 
