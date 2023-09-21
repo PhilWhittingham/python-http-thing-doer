@@ -7,6 +7,7 @@ name = "pypi"
 fastapi = "*"
 httpx = "*"
 dependency-injector = "*"
+uvicorn = "*"
 
 [dev-packages]
 ruff = "*"
@@ -33,3 +34,4 @@ test-static = """sh -c "
 """
 test-unit = "pytest test/unit"
 test-behave = "behave test/behave/features"
+serve = "uvicorn app.main:app --host 0.0.0.0 --port 80"
